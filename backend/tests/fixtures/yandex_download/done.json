@@ -1,0 +1,22 @@
+{
+  "type": "download.done",
+  "ts": "2026-11-14T21:09:55.640Z",
+  "payload": {
+    "task": {
+      "id": 9,
+      "track_id": 1,
+      "title": "Ночной эфир",
+      "status": "completed",
+      "priority": 0,
+      "attempts": 1,
+      "bytes_done": 21233664,
+      "bytes_total": 21233664,
+      "target_path": "Тестовый Оркестр/Mock Album (2024)/Disc 1/01 - Ночной эфир.flac",
+      "quality": "flac",
+      "format": "flac",
+      "error": null,
+      "created_at": "2026-11-14T21:09:40.118Z",
+      "updated_at": "2026-11-14T21:09:55.640Z"
+    }
+  }
+}

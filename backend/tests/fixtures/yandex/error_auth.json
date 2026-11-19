@@ -1,0 +1,9 @@
+{
+  "error": {
+    "code": "auth_required",
+    "message": "Yandex Music authorization is required",
+    "details": {
+      "reason": "token_missing"
+    }
+  }
+}

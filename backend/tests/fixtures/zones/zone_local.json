@@ -1,0 +1,10 @@
+{
+  "id": "local-default",
+  "kind": "local_sink",
+  "name": "Локальный выход (3.5 мм)",
+  "sink_name": "alsa_output.platform-bcm2835_audio.stereo-fallback",
+  "volume": 80,
+  "offset_ms": 0,
+  "active": true,
+  "available": true
+}

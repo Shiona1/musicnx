@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "id": "1001:7",
+      "kind": 7,
+      "title": "Любимая подборка",
+      "track_count": 4,
+      "cover_url": "https://avatars.yandex.net/get-music-content/9876543210/3f9c1a2b4d5e-300x300",
+      "owner": "musicnx-demo"
+    }
+  ],
+  "total": 1
+}

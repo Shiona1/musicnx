@@ -1,0 +1,20 @@
+{
+  "name": "MusicNX",
+  "short_name": "MusicNX",
+  "description": "Автономный музыкальный центр на Raspberry Pi",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#070a12",
+  "theme_color": "#070a12",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

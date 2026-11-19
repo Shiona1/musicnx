@@ -1,0 +1,96 @@
+{
+  "station": "user:onyourwave",
+  "batch_id": "wave-20261114T093000Z-0001",
+  "session_id": null,
+  "tracks": [
+    {
+      "id": 103,
+      "title": "Городские огни",
+      "artists": [
+        {
+          "id": 302,
+          "name": "Mock Artist"
+        }
+      ],
+      "album": {
+        "id": 502,
+        "title": "Cities",
+        "year": 2023,
+        "cover_path": null
+      },
+      "duration_ms": 245000,
+      "genre": "Synthwave",
+      "label": null,
+      "availability": "online",
+      "has_local_file": false,
+      "has_online_source": true,
+      "file_missing": false,
+      "source_unavailable": false,
+      "cover_url": "https://avatars.yandex.net/get-music-content/1234567890/9a8b7c6d5e4f-300x300",
+      "source": "yandex",
+      "external_id": "9003:502",
+      "preview": false,
+      "liked": true
+    },
+    {
+      "id": 101,
+      "title": "Полночный эфир",
+      "artists": [
+        {
+          "id": 301,
+          "name": "Тестовый Оркестр"
+        }
+      ],
+      "album": {
+        "id": 501,
+        "title": "Midnight Sessions",
+        "year": 2024,
+        "cover_path": null
+      },
+      "duration_ms": 214000,
+      "genre": "Electronic",
+      "label": null,
+      "availability": "online",
+      "has_local_file": false,
+      "has_online_source": true,
+      "file_missing": false,
+      "source_unavailable": false,
+      "cover_url": "https://avatars.yandex.net/get-music-content/9876543210/3f9c1a2b4d5e-300x300",
+      "source": "yandex",
+      "external_id": "9001:501",
+      "preview": false,
+      "liked": true
+    },
+    {
+      "id": 104,
+      "title": "Тихий дождь",
+      "artists": [
+        {
+          "id": 302,
+          "name": "Mock Artist"
+        }
+      ],
+      "album": {
+        "id": 502,
+        "title": "Cities",
+        "year": 2023,
+        "cover_path": null
+      },
+      "duration_ms": 176000,
+      "genre": "Ambient",
+      "label": null,
+      "availability": "online",
+      "has_local_file": false,
+      "has_online_source": true,
+      "file_missing": false,
+      "source_unavailable": false,
+      "cover_url": "https://avatars.yandex.net/get-music-content/1234567890/9a8b7c6d5e4f-300x300",
+      "source": "yandex",
+      "external_id": "9004:502",
+      "preview": true,
+      "liked": true
+    }
+  ],
+  "current_index": 0,
+  "updated_at": "2026-11-14T09:30:00.000Z"
+}

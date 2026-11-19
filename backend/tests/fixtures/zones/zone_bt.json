@@ -1,0 +1,10 @@
+{
+  "id": "bt-headphones",
+  "kind": "bt",
+  "name": "Bluetooth-наушники",
+  "sink_name": "bluez_output.AA_BB_CC_DD_EE_FF.1",
+  "volume": 65,
+  "offset_ms": -80,
+  "active": false,
+  "available": true
+}

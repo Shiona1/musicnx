@@ -1,0 +1,112 @@
+# MusicNX configuration example.
+# Copy to config/config.yaml and edit. Environment variables MUSICNX_* override
+# this file. Nested keys use double underscore: MUSICNX_SERVER__PORT=8090.
+
+# "mock" — no mpv, no Yandex, virtual playback (development and tests).
+# "real" — mpv subprocess and local files (Linux/Pi; see docs/AUDIO.md).
+mode: mock
+
+server:
+  host: 0.0.0.0
+  port: 8080
+
+paths:
+  data_dir: var
+  database: var/musicnx.db
+  library: var/library
+  downloads: var/downloads
+  cache: var/cache
+  backups: var/backups
+
+audio:
+  # auto: mpv on POSIX if installed, otherwise mock. mpv | mock force the choice.
+  backend: auto
+  mpv_path: mpv
+  # mpv --input-ipc-server path; the parent directory is created on startup.
+  # YAML values are literal: shell variables ($XDG_RUNTIME_DIR) and systemd
+  # specifiers (%t) are not expanded here. Prefer MUSICNX_AUDIO__IPC_SOCKET for
+  # a per-user path such as "$XDG_RUNTIME_DIR/musicnx/mpv.sock" (systemd:
+  # Environment=MUSICNX_AUDIO__IPC_SOCKET=%t/musicnx/mpv.sock). When unset the
+  # backend default applies.
+  # ipc_socket: /run/user/<uid>/musicnx/mpv.sock
+  start_timeout_s: 10.0
+  restart_backoff_s: [1, 2, 5]
+  max_restart_attempts: 5
+  # P3 browser zone: mpv is muted locally, clients play /stream/{track_id}.
+  browser_zone: false
+
+player:
+  default_volume: 70
+  autoplay: true
+  # Position is persisted with this debounce, never on every tick.
+  position_persist_interval_s: 7.0
+  # WebSocket position events per second (1-2 per SPEC).
+  position_event_hz: 2.0
+  # "previous" seeks to 0 when the current position is greater than this.
+  previous_restart_threshold_ms: 3000
+
+logging:
+  level: INFO
+  file: var/log/musicnx.log
+  max_bytes: 5242880
+  backup_count: 3
+
+yandex:
+  # P3: set enabled: true in real mode after Device Flow/manual token.
+  enabled: false
+  token_file: var/secrets/yandex_token.json
+  quality: mp3            # mp3 | aac | flac (P3 default mp3; FLAC optional)
+  # Optional OAuth app credentials; defaults to the public Android app creds
+  # used by yandex_music 3.2.2 (docs/YANDEX_API.md).
+  # client_id: null
+  # client_secret: null
+  device_name: MusicNX
+  request_timeout_s: 15
+  refresh_before_s: 120
+
+sync:
+  # P6 feature; ignored by P0/P1.
+  enabled: false
+  interval_s: 3600
+
+lyrics:
+  # Community fallback when neither a local .lrc nor Yandex has lyrics.
+  lrclib_enabled: true
+  lrclib_timeout_s: 6.0
+
+library:
+  # Allowed import roots. Empty means paths.library. Paths must exist; imports
+  # never traverse outside these roots.
+  import_roots: []
+  extensions: [".mp3", ".flac", ".aac", ".m4a", ".wav"]
+  # Browser uploads are saved under <first import root>/uploads.
+  upload_max_bytes: 314572800
+  cover_cache_mb: 64
+  cover_sizes: [300, 1000, 64]
+  checksum_chunk_bytes: 1048576
+
+security:
+  # Hosts accepted in the Host header. Private IPs and *.local are also accepted.
+  allowed_hosts:
+    - localhost
+    - 127.0.0.1
+    - "::1"
+    - musicnx.local
+  # Exact origins for CORS; empty means no CORS middleware (recommended).
+  allowed_origins: []
+  enforce_host: true
+  # PIN for state-changing endpoints (import/settings/sync/downloads/zones/bt).
+  # When unset, mutating endpoints are accepted from localhost only.
+  # Prefer MUSICNX_SECURITY__PIN instead of committing a PIN to YAML.
+  pin: null
+  # Failed PIN attempts are throttled per client IP in memory (429 after the
+  # limit). A successful login clears the counter.
+  # pin_max_attempts: 5
+  # pin_lockout_s: 60
+  # Optional cookie signing key. When unset it is derived from the PIN.
+  session_secret: null
+  session_ttl_s: 604800
+
+mock:
+  # Seed the mock catalog into SQLite on startup (idempotent).
+  seed_catalog: true

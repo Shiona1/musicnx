@@ -1,0 +1,18 @@
+{
+  "path": "Тестовый Оркестр/Mock Album (2024)/Disc 1/01 - Ночной эфир.m4a",
+  "format": "m4a",
+  "quality": "flac",
+  "checksum": "8ac15715bd9119412177f7fc5c52abdfe5efc9026e70ea55c265c6a656f99e8d",
+  "bytes_written": 29529693,
+  "title": "Ночной эфир",
+  "artists": [
+    "Тестовый Оркестр"
+  ],
+  "album": "Mock Album",
+  "albumartist": "Тестовый Оркестр",
+  "year": 2024,
+  "genre": "Electronic",
+  "track_number": 1,
+  "disc_number": 1,
+  "label": null
+}

@@ -1,0 +1,73 @@
+{
+  "album": {
+    "id": 501,
+    "title": "Midnight Sessions",
+    "year": 2024,
+    "artist": {
+      "id": 301,
+      "name": "Тестовый Оркестр"
+    },
+    "cover_url": "https://avatars.yandex.net/get-music-content/9876543210/3f9c1a2b4d5e-300x300",
+    "track_count": 2
+  },
+  "tracks": [
+    {
+      "id": 101,
+      "title": "Полночный эфир",
+      "artists": [
+        {
+          "id": 301,
+          "name": "Тестовый Оркестр"
+        }
+      ],
+      "album": {
+        "id": 501,
+        "title": "Midnight Sessions",
+        "year": 2024,
+        "cover_path": null
+      },
+      "duration_ms": 214000,
+      "genre": "Electronic",
+      "label": null,
+      "availability": "online",
+      "has_local_file": false,
+      "has_online_source": true,
+      "file_missing": false,
+      "source_unavailable": false,
+      "cover_url": "https://avatars.yandex.net/get-music-content/9876543210/3f9c1a2b4d5e-300x300",
+      "source": "yandex",
+      "external_id": "9001:501",
+      "preview": false,
+      "liked": true
+    },
+    {
+      "id": 102,
+      "title": "Северное сияние",
+      "artists": [
+        {
+          "id": 301,
+          "name": "Тестовый Оркестр"
+        }
+      ],
+      "album": {
+        "id": 501,
+        "title": "Midnight Sessions",
+        "year": 2024,
+        "cover_path": null
+      },
+      "duration_ms": 198000,
+      "genre": "Electronic",
+      "label": null,
+      "availability": "online",
+      "has_local_file": false,
+      "has_online_source": true,
+      "file_missing": false,
+      "source_unavailable": false,
+      "cover_url": "https://avatars.yandex.net/get-music-content/9876543210/3f9c1a2b4d5e-300x300",
+      "source": "yandex",
+      "external_id": "9002:501",
+      "preview": false,
+      "liked": true
+    }
+  ]
+}

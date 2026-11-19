@@ -1,0 +1,10 @@
+{
+  "id": "browser-main",
+  "kind": "browser",
+  "name": "Браузер клиента",
+  "sink_name": null,
+  "volume": 70,
+  "offset_ms": 120,
+  "active": false,
+  "available": true
+}

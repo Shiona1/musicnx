@@ -1,0 +1,5 @@
+/* Inter font notices. Files are bundled locally; no CDN is used. */
+Inter-500.ttf, Inter-600.ttf, Inter-700.ttf
+Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)
+Licensed under the SIL Open Font License, Version 1.1.
+Full license: https://github.com/rsms/inter/blob/master/LICENSE.txt

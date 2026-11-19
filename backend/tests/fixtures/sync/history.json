@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": 42,
+      "started_at": "2026-11-14T10:00:00.000Z",
+      "finished_at": "2026-11-14T10:00:01.250Z",
+      "status": "success",
+      "playlists_added": 0,
+      "playlists_updated": 0,
+      "playlists_removed": 0,
+      "tracks_added": 0,
+      "tracks_updated": 0,
+      "tracks_removed": 0,
+      "error": null
+    },
+    {
+      "id": 41,
+      "started_at": "2026-11-14T09:00:00.000Z",
+      "finished_at": "2026-11-14T09:00:03.500Z",
+      "status": "success",
+      "playlists_added": 1,
+      "playlists_updated": 0,
+      "playlists_removed": 0,
+      "tracks_added": 4,
+      "tracks_updated": 0,
+      "tracks_removed": 0,
+      "error": null
+    },
+    {
+      "id": 40,
+      "started_at": "2026-11-14T08:00:00.000Z",
+      "finished_at": "2026-11-14T08:00:05.000Z",
+      "status": "partial",
+      "playlists_added": 1,
+      "playlists_updated": 0,
+      "playlists_removed": 0,
+      "tracks_added": 3,
+      "tracks_updated": 0,
+      "tracks_removed": 0,
+      "error": "playlist 1001:8: upstream timeout"
+    }
+  ],
+  "total": 3
+}

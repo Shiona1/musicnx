@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "address": "AA:BB:CC:DD:EE:FF",
+      "name": "Sony WH-1000XM4",
+      "paired": true,
+      "connected": true
+    },
+    {
+      "address": "11:22:33:44:55:66",
+      "name": "Bluetooth-колонка",
+      "paired": false,
+      "connected": false
+    },
+    {
+      "address": "DE:AD:BE:EF:00:01",
+      "name": null,
+      "paired": false,
+      "connected": false
+    }
+  ],
+  "total": 3,
+  "backend": "mock"
+}

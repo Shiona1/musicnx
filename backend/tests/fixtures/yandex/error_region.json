@@ -1,0 +1,11 @@
+{
+  "error": {
+    "code": "no_playable_source",
+    "message": "Track is not available in this region",
+    "details": {
+      "external_id": "9099:599",
+      "reason": "region_restricted",
+      "availability": "unavailable"
+    }
+  }
+}

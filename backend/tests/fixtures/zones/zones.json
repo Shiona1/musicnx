@@ -1,0 +1,37 @@
+{
+  "items": [
+    {
+      "id": "local-default",
+      "kind": "local_sink",
+      "name": "Локальный выход (3.5 мм)",
+      "sink_name": "alsa_output.platform-bcm2835_audio.stereo-fallback",
+      "volume": 80,
+      "offset_ms": 0,
+      "active": true,
+      "available": true
+    },
+    {
+      "id": "browser-main",
+      "kind": "browser",
+      "name": "Браузер клиента",
+      "sink_name": null,
+      "volume": 70,
+      "offset_ms": 120,
+      "active": false,
+      "available": true
+    },
+    {
+      "id": "bt-headphones",
+      "kind": "bt",
+      "name": "Bluetooth-наушники",
+      "sink_name": "bluez_output.AA_BB_CC_DD_EE_FF.1",
+      "volume": 65,
+      "offset_ms": -80,
+      "active": false,
+      "available": true
+    }
+  ],
+  "total": 3,
+  "backend": "mock",
+  "degraded": false
+}

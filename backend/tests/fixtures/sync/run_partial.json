@@ -1,0 +1,13 @@
+{
+  "id": 40,
+  "started_at": "2026-11-14T08:00:00.000Z",
+  "finished_at": "2026-11-14T08:00:05.000Z",
+  "status": "partial",
+  "playlists_added": 1,
+  "playlists_updated": 0,
+  "playlists_removed": 0,
+  "tracks_added": 3,
+  "tracks_updated": 0,
+  "tracks_removed": 0,
+  "error": "playlist 1001:8: upstream timeout"
+}

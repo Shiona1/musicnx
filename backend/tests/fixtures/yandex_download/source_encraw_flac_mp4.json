@@ -1,0 +1,10 @@
+{
+  "track_id": 1,
+  "url": "https://cdn.musicnx.invalid/audio/mock-track-1-mp4",
+  "codec": "flac-mp4",
+  "quality": "flac",
+  "transport": "encraw",
+  "key_present": true,
+  "preview": false,
+  "cover_url": "https://avatars.yandex.net/get-music-content/9876543210/3f9c1a2b4d5e-1000x1000"
+}

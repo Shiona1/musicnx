@@ -1,0 +1,159 @@
+@font-face {
+  font-family: 'MusicNX Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-500.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MusicNX Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-600.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MusicNX Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-700.ttf') format('truetype');
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Base scene */
+  --bg: #05070c;
+  --bg-abyss: #05070c;
+  --bg-scene: #090e17;
+  --bg-soft: #0d1320;
+  --bg-elevated: #111824;
+
+  /* Glass levels */
+  --glass-1: rgba(12, 18, 28, 0.62);
+  --glass-2: rgba(18, 24, 36, 0.54);
+  --glass-3: rgba(8, 12, 20, 0.84);
+  --glass-highlight: rgba(255, 255, 255, 0.07);
+  --surface: rgba(255, 255, 255, 0.055);
+  --surface-hover: rgba(255, 255, 255, 0.095);
+  --border: rgba(255, 255, 255, 0.12);
+  --stroke: rgba(255, 255, 255, 0.13);
+  --stroke-strong: rgba(255, 255, 255, 0.24);
+
+  /* Text */
+  --text: #f5f7fc;
+  --text-soft: rgba(245, 247, 252, 0.72);
+  --muted: #939db2;
+  --text-muted: var(--muted);
+  --shadow-soft: 0 24px 60px -34px rgba(0, 0, 0, 0.9);
+
+  /* Accent identity */
+  --accent: #8b5cf6;
+  --accent-2: #5ee7f2;
+  --accent-soft: rgba(94, 231, 242, 0.14);
+  --success: #74e0b0;
+  --warning: #f6c76a;
+  --danger: #fb7f8f;
+
+  /* Typography */
+  --font-sans: 'MusicNX Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --text-display: clamp(2.5rem, 4.6vw, 3.5rem);
+  --text-page: clamp(1.65rem, 2.7vw, 2.25rem);
+  --text-section: 1.2rem;
+  --text-card: 0.94rem;
+  --text-body: 0.875rem;
+  --text-meta: 0.75rem;
+  --text-micro: 0.69rem;
+
+  /* Geometry */
+  --radius-xs: 10px;
+  --radius-sm: 14px;
+  --radius: 20px;
+  --radius-card: 24px;
+  --radius-panel: 28px;
+  --radius-pill: 999px;
+  --page-max: 1680px;
+  --page-gutter: clamp(16px, 3vw, 48px);
+  --section-gap: clamp(22px, 3vw, 34px);
+  --card-gap: clamp(12px, 1.6vw, 20px);
+  --dock-height: 92px;
+  /* Bottom navigation height: 0 on desktop, real height under 900px so page
+     paddings and overlays clear the thumb-zone bar. */
+  --bnav-height: 0px;
+  --blur: 18px;
+
+  /* Motion */
+  --motion-fast: 140ms;
+  --motion-page: 220ms;
+  --motion-select: 240ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.3, 1);
+
+  /* Liquid Glass materials (opt-in; existing tokens above stay unchanged) */
+  --material-chrome-fill: rgba(10, 16, 26, 0.58);
+  --material-overlay-fill: rgba(8, 12, 20, 0.76);
+  --material-interactive-fill: rgba(255, 255, 255, 0.07);
+  --material-interactive-hover: rgba(255, 255, 255, 0.11);
+  --material-content-fill: rgba(12, 17, 26, 0.92);
+  --material-solid: #101722;
+  --material-solid-soft: #0d1420;
+  --material-scrim: rgba(2, 4, 8, 0.52);
+
+  --material-chrome-blur: 20px;
+  --material-overlay-blur: 28px;
+  --material-mobile-chrome-blur: 16px;
+  --material-mobile-overlay-blur: 22px;
+  --material-saturate: 150%;
+
+  --material-edge: rgba(255, 255, 255, 0.22);
+  --material-edge-soft: rgba(255, 255, 255, 0.11);
+  --material-edge-strong: rgba(255, 255, 255, 0.34);
+  --material-inner-top: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  --material-inner-bottom: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  --material-specular: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.1) 28%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.16)
+  );
+  --material-specular-hover: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.72),
+    rgba(255, 255, 255, 0.08) 34%,
+    rgba(255, 255, 255, 0) 62%,
+    rgba(255, 255, 255, 0.2)
+  );
+
+  --material-shadow-float: 0 24px 60px -34px rgba(0, 0, 0, 0.92);
+  --material-shadow-overlay: 0 32px 80px -28px rgba(0, 0, 0, 0.96);
+  --material-shadow-card: 0 20px 48px -30px rgba(0, 0, 0, 0.8);
+  --material-glow-selected:
+    0 0 0 1px color-mix(in srgb, var(--cover-accent, var(--accent-2)) 55%, transparent),
+    0 18px 44px -22px color-mix(in srgb, var(--cover-accent, var(--accent-2)) 38%, transparent);
+
+  --cover-accent: var(--accent-2);
+  --cover-accent-soft: rgba(94, 231, 242, 0.14);
+  --cover-accent-strong: rgba(94, 231, 242, 0.34);
+
+  --focus-ring: 0 0 0 2px var(--bg-abyss), 0 0 0 4px var(--accent-2);
+  --motion-material: 220ms;
+  --motion-hover: 140ms;
+  --motion-overlay: 240ms;
+  --ease-material: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 720px) {
+  :root {
+    --dock-height: 78px;
+    --page-gutter: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --bnav-height: calc(60px + env(safe-area-inset-bottom, 0px));
+  }
+}

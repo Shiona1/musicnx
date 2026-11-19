@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# NOTE: backend/app/static IS committed on purpose — the Pi serves the
+# prebuilt UI and never runs Node.js. Rebuild it with `make build`.
+# Frontend sources live in frontend/ for those who want to rebuild.
+
+# Node / frontend tooling
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# Runtime data: database, music, cache, downloads, logs, token files
+var/
+config/config.yaml
+.env
+.env.*
+!.env.example
+
+# Local release artifacts
+dist/
+
+# Local secrets
+*.token
+*_token.json
+secrets/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Test artifacts
+test-results/
+playwright-report/
+
+# Logs
+*.log

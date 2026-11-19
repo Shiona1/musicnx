@@ -1,0 +1,302 @@
+/* MusicNX Liquid Glass materials — opt-in only.
+ *
+ * Nothing here is applied by element name or by the legacy Surface default.
+ * A component opts in with `material="chrome|overlay|interactive|content|solid"`
+ * or with one of the `.material-*` classes.
+ *
+ * The existing --glass-* tokens and .level-* Surface styles remain unchanged;
+ * pages keep their current appearance until LG2–LG4 explicitly migrate them.
+ */
+
+.material-chrome,
+.material-overlay {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--material-edge);
+  border-radius: var(--radius-card);
+  background: var(--material-chrome-fill);
+  -webkit-backdrop-filter: blur(var(--material-chrome-blur)) saturate(var(--material-saturate));
+  backdrop-filter: blur(var(--material-chrome-blur)) saturate(var(--material-saturate));
+  box-shadow:
+    var(--material-shadow-float),
+    var(--material-inner-top),
+    var(--material-inner-bottom);
+}
+
+.material-overlay {
+  border-color: var(--material-edge-strong);
+  border-radius: var(--radius-panel);
+  background: var(--material-overlay-fill);
+  -webkit-backdrop-filter: blur(var(--material-overlay-blur)) saturate(var(--material-saturate));
+  backdrop-filter: blur(var(--material-overlay-blur)) saturate(var(--material-saturate));
+  box-shadow:
+    var(--material-shadow-overlay),
+    var(--material-inner-top),
+    var(--material-inner-bottom);
+}
+
+/* A directional rim light, not a second border. The mask leaves only 1px. */
+.material-chrome::before,
+.material-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--material-specular);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Static dithering only; no animation and no per-card mix-blend-mode. */
+.material-chrome::after,
+.material-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+.material-interactive {
+  border: 1px solid var(--material-edge-soft);
+  border-radius: var(--radius-card);
+  background: var(--material-interactive-fill);
+  box-shadow: var(--material-inner-top);
+  transition:
+    background-color var(--motion-hover) ease,
+    border-color var(--motion-hover) ease,
+    transform var(--motion-hover) var(--ease-material);
+}
+
+.material-interactive:hover:not(:disabled) {
+  border-color: var(--material-edge);
+  background: var(--material-interactive-hover);
+  transform: translateY(-1px);
+}
+
+.material-interactive:active:not(:disabled) {
+  transform: translateY(0) scale(0.985);
+}
+
+.material-interactive.is-selected,
+.material-interactive[aria-pressed='true'],
+.material-interactive[data-selected='true'] {
+  border-color: color-mix(in srgb, var(--cover-accent) 58%, var(--material-edge));
+  box-shadow:
+    var(--material-glow-selected),
+    var(--material-inner-top);
+}
+
+.material-chrome.is-selected,
+.material-overlay.is-selected,
+.material-content.is-selected,
+.material-solid.is-selected {
+  border-color: color-mix(in srgb, var(--cover-accent) 58%, var(--material-edge));
+  box-shadow:
+    var(--material-glow-selected),
+    var(--material-inner-top);
+}
+
+.material-chrome.is-interactive,
+.material-overlay.is-interactive,
+.material-content.is-interactive,
+.material-solid.is-interactive {
+  cursor: pointer;
+}
+
+.material-chrome.is-interactive:hover,
+.material-overlay.is-interactive:hover,
+.material-content.is-interactive:hover,
+.material-solid.is-interactive:hover {
+  border-color: var(--material-edge-strong);
+}
+
+.material-content {
+  border: 1px solid var(--material-edge-soft) !important;
+  border-radius: var(--radius-card);
+  background: var(--material-content-fill) !important;
+  box-shadow: var(--material-shadow-card) !important;
+  /* Deliberately no backdrop-filter: artwork is the material. */
+}
+
+.material-solid {
+  border: 1px solid var(--material-edge-soft);
+  border-radius: var(--radius-sm);
+  background: var(--material-solid);
+  /* Deliberately no backdrop-filter: reading surfaces stay readable. */
+}
+
+.material-scrim {
+  background: var(--material-scrim);
+  /* No blur: scrims are for contrast, not another glass layer. */
+}
+
+/* Existing PIN dialogs opt in by adding .material-scrim/.material-overlay.
+ * The important rules replace the legacy opaque modal background while keeping
+ * each component's width/padding/handlers untouched. */
+.modal-backdrop.material-scrim {
+  background: var(--material-scrim) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.modal.material-overlay {
+  background: var(--material-overlay-fill) !important;
+  border-color: var(--material-edge) !important;
+  border-radius: var(--radius-panel) !important;
+  box-shadow:
+    var(--material-shadow-overlay),
+    var(--material-inner-top),
+    var(--material-inner-bottom) !important;
+  animation: material-dialog-in var(--motion-overlay) var(--ease-material);
+}
+
+@keyframes material-dialog-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Keep the material budget on small screens. */
+@media (max-width: 760px) {
+  :root {
+    --material-chrome-blur: var(--material-mobile-chrome-blur);
+    --material-overlay-blur: var(--material-mobile-overlay-blur);
+  }
+}
+
+/* No backdrop-filter support: solid, still hierarchical. */
+@supports not (backdrop-filter: blur(1px)) {
+  .material-chrome {
+    background: var(--bg-elevated);
+    box-shadow: var(--material-shadow-float), var(--material-inner-top);
+  }
+
+  .material-overlay {
+    background: var(--bg-elevated);
+    box-shadow: var(--material-shadow-overlay), var(--material-inner-top);
+  }
+
+  .modal.material-overlay {
+    background: var(--bg-elevated) !important;
+  }
+
+  .material-chrome::before,
+  .material-overlay::before,
+  .material-chrome::after,
+  .material-overlay::after {
+    display: none;
+  }
+}
+
+/* Explicit fallback used by the preview harness and the existing lite mode. */
+body.reduce-effects .material-chrome,
+body.reduce-effects .material-overlay,
+body.no-backdrop .material-chrome,
+body.no-backdrop .material-overlay {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: var(--bg-elevated);
+  box-shadow:
+    var(--material-shadow-float),
+    var(--material-inner-top);
+}
+
+body.reduce-effects .modal.material-overlay,
+body.no-backdrop .modal.material-overlay {
+  background: var(--bg-elevated) !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.reduce-effects .material-chrome::before,
+body.reduce-effects .material-overlay::before,
+body.reduce-effects .material-chrome::after,
+body.reduce-effects .material-overlay::after,
+body.no-backdrop .material-chrome::before,
+body.no-backdrop .material-overlay::before,
+body.no-backdrop .material-chrome::after,
+body.no-backdrop .material-overlay::after {
+  display: none;
+}
+
+body.reduce-effects .material-interactive,
+body.no-backdrop .material-interactive {
+  background: var(--material-solid-soft);
+  border-color: var(--material-edge-soft);
+  box-shadow: none;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .material-chrome,
+  .material-overlay {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--bg-elevated);
+  }
+
+  .modal.material-overlay {
+    background: var(--bg-elevated) !important;
+  }
+
+  .material-chrome::before,
+  .material-overlay::before,
+  .material-chrome::after,
+  .material-overlay::after {
+    display: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .material-chrome,
+  .material-overlay,
+  .material-interactive,
+  .material-content,
+  .material-solid {
+    background: var(--bg-elevated);
+    border-color: var(--text-soft);
+  }
+
+  .material-chrome,
+  .material-overlay {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .modal.material-overlay {
+    background: var(--bg-elevated) !important;
+  }
+
+  .material-chrome::before,
+  .material-overlay::before,
+  .material-chrome::after,
+  .material-overlay::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .material-interactive {
+    transition: none;
+  }
+
+  .material-interactive:hover:not(:disabled),
+  .material-interactive:active:not(:disabled) {
+    transform: none;
+  }
+
+  .modal.material-overlay {
+    animation: none;
+  }
+}
